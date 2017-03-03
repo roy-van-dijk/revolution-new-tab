@@ -1,0 +1,323 @@
+*:focus{
+	outline: none;
+}
+html{
+	overflow-x: hidden;
+}
+body{
+	background-image: url(img/background.png);
+	background-color: white;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+}
+.linkblock{
+	height: 165px;
+	width: 165px;
+	max-width: 165px;
+	margin: 15px auto;
+	transition: transform 0.15s ease-in-out;
+	padding: 15px;
+	overflow: hidden;
+	z-index: 999;
+	/* Without transparency toggled */
+	border: 3px solid white;
+	background-color: white;
+	box-shadow: 5px 5px 9px #444444;
+}
+/* With transparency toggled */
+.transparencyToggled{
+	border: 3px solid rgba(0,0,0,0.0) !important;
+	background-color: rgba(0,0,0,0.0) !important;
+	box-shadow: none !important;
+}
+.linkblock:hover{
+	border: 3px solid white !important; /*E5E5E5*/
+}
+.link{
+	height: 100%;
+	width: 100%;
+    overflow: hidden;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    line-height: 135px;
+}
+.link img{
+	max-width: 135px;
+	max-height: 135px;
+}
+.noselect{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#weather .lower{
+	text-transform: none;
+}
+#weather{
+	color: white;
+}
+.searchform{
+	margin-left: auto;
+	margin-right: auto;
+}
+.searchform input{
+	background-image: url(img/google.png);
+	background-size: 35px 35px;
+	background-repeat: no-repeat;
+	background-position: 3px 4px;
+	width: 100%;
+	border: 3px solid white;
+	height: 50px;
+	font-size: 25px;
+	margin-top: 75px;
+	text-indent: 45px;
+	ouline: none;
+	box-shadow: 5px 5px 9px #444444;
+}
+.settingsbuttoncontainer{
+	margin-top: 75px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 50px;
+}
+.settingsbutton{
+	width: 50px;
+	height: 50px;
+	background-image: url(img/settingscog.png);
+	background-size: cover;
+	background-position: center;
+	cursor: pointer;
+	float: right;
+}
+.settingsdialog{
+	display: none;
+	background-color: white;
+	padding: 10px;
+	width: 280px;
+}
+.settingsdialog input{
+	border: 1px solid #868686;
+}
+.locationhelp ul{
+	padding-left: 20px;
+	font-size: 12px;
+}
+.copyright{
+	padding-top: 15px;
+	font-size: 12px;
+	width: 100%;
+	float: left;
+}
+.copyright span{
+	line-height: 20px;
+}
+.version{
+
+	float: right;
+}
+.vishidden{
+	visibility: hidden;
+	cursor: default;
+}
+.displaynone{
+	display: none;
+}
+.editblock{
+	width: 165px;
+	height: 165px;
+	position: absolute;
+	margin-top: 15px;
+	z-index: 999;
+	background-color: rgba(0,0,0,0.5);
+	cursor: pointer;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	box-shadow: 5px 5px 9px #444444;
+}
+.setdia{
+	display: none;
+	background-color: white;
+	padding: 10px;
+	width: 200px;
+}
+#txtLink, #txtImage, #txtColour{
+	width: 180px;
+}
+#txtBackground, #txtBgImage, #txtLocation{
+	float: right;
+	text-indent: 3px;
+}
+.editmessage{
+	width: 100%;
+	text-align: center;
+	background-color: #337AB7;
+	font-size: 20px;
+	color: white;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.editmessage p{
+	margin-bottom: 0px;
+}
+#restoredefaults{
+	display: block;
+	margin: 0px auto;
+}
+.circle{
+	border-radius: 100px;
+}
+.settingstable{
+	width: 260px;
+}
+.settingstable td{
+	padding: 3px;
+}
+.leftcells{
+	width: 175px;
+	white-space: nowrap;
+}
+.height{
+	height: 195px;
+}
+.floatright{
+	float: right;
+}
+.switchbox{
+	width: 67px;
+	height: 24px;
+	border: 1px solid #868686;
+	font-family: Arial;
+	overflow: hidden;
+	float: right;
+}
+.switchbox label{
+	cursor: pointer;
+	width: 67px;
+}
+.switchbox input{
+	display: none;
+}
+.switchbox span{
+	width: 34px;
+	height: 24px;
+	display: block;
+	background-color: #eee;
+	transition: 0.25s ease-in-out;
+	text-align: center;
+	font-size: 14px;
+	font-weight: normal;
+}
+.switchbox input:checked + span{
+	background-color: #337AB7;
+	transform: translatex(34px);
+}
+.switchbox input + span:after{
+	color: black;
+	content: 'OFF';
+}
+.switchbox input:checked + span:after{
+	color: white;
+	content: 'ON';
+	padding-right: 3px;
+}
+#clock{
+  width: 457px;
+  min-height: 221px;
+  max-height: 221px;
+  float: right;
+  margin: 0px auto;
+  text-align: center;
+  cursor: default;
+}
+.time{
+	color: white;
+	font-size: 100px;
+	text-shadow: 4px 4px 5px #444444;
+}
+.timeAmpm{
+	color: white;
+	font-size: 100px;
+	text-shadow: 4px 4px 5px #444444;
+}
+.stopwatch{
+	color: white;
+	font-size: 100px;
+	text-shadow: 4px 4px 5px #444444;
+	max-height: 221px;
+}
+.stopwatchcontrols{
+	margin-top: -75px;
+}
+.stopwatchcontrols button{
+	font-size: 23px;
+	width: 75px;
+	height: 40px;
+	text-shadow: 2px 2px 3px #444444;
+	border: none;
+	background-color: rgba(0,0,0,0);
+	transition: 0.05s transform ease-in-out;
+}
+.stopwatch button:active{
+	transform: scale(0.9);
+}
+.stopwatch button:disabled{
+	color: #e6e6e6;
+	text-shadow: none;
+}
+#snsStopwatch, #clearStopwatch{
+	width: 150px;
+}
+.date{
+	color: white;
+	font-size: 35px;
+	text-shadow: 3px 3px 5px #444444;
+	margin-top: -20px;
+}
+#import, #export{
+	display: block;
+	margin: 0px auto;
+}
+.tips{
+	color: #337AB7;
+	font-weight: bold;
+	cursor: pointer;
+}
+.tipsbody{
+	font-size: 12px;
+}
+.donate{
+	font-size: 12px;
+}
+@media(max-width: 1200px){
+	.searchform input{
+		background-position: 2px 4px;
+	}
+	.settingsbuttoncontainer{
+		float: right;
+		margin-top: -270px;
+	}
+	.searchform input{
+		margin-top: -100px;
+		margin-bottom: 50px;
+	}
+	.settingsgrid{
+		padding-right: 0px;
+	}
+	#clock{
+		float: none;
+	}
+}
+@media(max-width: 600px){
+	.editblock{
+		margin-left: 15px;
+	}
+}

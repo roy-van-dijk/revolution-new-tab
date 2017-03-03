@@ -1,0 +1,18 @@
+CHANGELOG
+
+
+Version 1.01
+	- Improved load times from ~350ms to ~150ms
+	- Fixed occasional on-off switch rendering bugs
+	- Empty icons on default page are now hidden
+	- Removed some animations to improve performance
+
+Version 1.1
+	- Added option for transparent icons
+	- Flatter design
+	- Removed weather funtionality until a more reliable alternative is available
+	- Replaced weather funtionality with time and date, once weather is re-added, will add a toggle
+	- Added stopwatch (can be switched with time and date)
+
+Version 1.11
+	- Switched from incrementing timing to delta timing to make it more reliable

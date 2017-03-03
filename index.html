@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>New Tab</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.stopwatch.js"></script>
+<!--script type="text/javascript" src="js/jquery.simpleWeather.min.js"></script>
+<script type="text/javascript" src="js/weather.js"></script-->
+<script type="text/javascript" src="js/time.js"></script>
+<script type="text/javascript" src="js/bpop.min.js"></script>
+<script type="text/javascript" src="js/jscolor.min.js"></script>
+<script type="text/javascript" src="js/editmode.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<!--link rel="stylesheet" type="text/css" href="css/weather.css"-->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+	<div class="settingsdialog"><!-- settingsdialog -->
+		<table class="settingstable">
+			<tr>
+				<td class="leftcells tips noselect">Show Quick Tips</td>
+			</tr>
+			<tr>
+				<td class="displaynone tipsbody" colspan="2">
+					<ul>
+						<li>To change links, images, and tile colours, turn on edit mode.</li>
+						<li>For tile icons, try using images with transparent backgrounds for the best results. You can identify these on Google Image Seach via the checkerboard pattern when previewing them.
+						<a href="https://www.google.com/search?q=google+g+transparent&safe=off&espv=2&biw=1920&bih=979&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiy96L5wdHMAhVLhywKHciHAG0Q_AUIBigB#imgrc=0Nj28QEbv1qZaM%3A" target="_blank">Example.</a></li>
+						<li>For all images, but especially the background image, try using images that aren't too large in filesize or are delivered by slow servers. This may harm page performance or load times.</li>
+				</td>
+			</tr>
+			<tr>
+				<td class="leftcells">
+					<label for="chkEdit" class="noselect">Edit mode</label>
+				</td>
+				<td>
+					<div class="switchbox"><label><input type="checkbox" id="chkEdit"><span></span></label></div>
+				</td>
+			</tr>
+			<tr>
+				<td class="leftcells">
+					<label for="chkRound" class="noselect">Round icons</label>
+				</td>
+				<td>
+					<div class="switchbox"><label><input type="checkbox" id="chkRound"><span></span></label></div>
+				</td>
+			</tr>
+			<tr>
+				<td class="leftcells">
+					<label for="chkTransparent" class="noselect">Transparent tiles</label>
+				</td>
+				<td>
+					<div class="switchbox"><label><input type="checkbox" id="chkTransparent"><span></span></label></div>
+				</td>
+			</tr>
+			<tr>
+				<td class="leftcells">
+					<label for="chkAmpm" class="noselect">12-hour time format</label>
+				</td>
+				<td>
+					<div class="switchbox"><label><input type="checkbox" id="chkAmpm"><span></span></label></div>
+				</td>
+			</tr>
+			<tr>
+				<td class="leftcells">
+					<label for="chkStopwatch" class="noselect">Stopwatch</label>
+				</td>
+				<td>
+					<div class="switchbox"><label><input type="checkbox" id="chkStopwatch"><span></span></label></div>
+				</td>
+			</tr>
+			<tr>
+				<td class="leftcells">
+					<label for="txtBackground" class="noselect">Background colour</label>
+				</td>
+				<td>
+					<input type="text" class="jscolor" id="txtBackground" maxLength="6" size="5">
+				</td>
+			</tr>
+			<tr>
+				<td class="leftcells">
+					<label for="txtBgImage" class="noselect">Background image URL</label>
+				</td>
+				<td>
+					<input type="text" id="txtBgImage" size="5">
+				</td>
+			</tr>
+			<!--tr>
+				<td class="leftcells">
+					<label for="txtLocation" class="noselect">Location</label>
+				</td>
+				<td>
+					<input type="text" id="txtLocation" size="5">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div class="locationhelp">
+						<ul>
+							<li>Can be any city, town, state or US zipcode.</li>
+							<li>If you can't find your city, try to refine your search using the initials of your state/province.</li>
+							<li>Full lists of locations available <a href="https://weather.codes" target="_blank">here</a>.</li>
+						</ul>
+					</div>
+				</td>
+			</tr-->
+			<!--tr>
+				<td colspan="2"><input type="button" id="export" value="Save settings to Google account"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="button" id="import" value="Import settings from Google account"></td>
+			</tr-->
+			<tr>
+				<td colspan="2"><input type="button" id="restoredefaults" value="Restore defaults"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="donate"></td>
+			</tr>
+		</table>
+		<div class="copyright">
+			<span>Like this extension? Consider donating <a href="http://www.paypal.me/revolutionnewtab" target="_blank">here.</a></span>
+			<span>Copyright &copy; Revolution New Tab</span>
+			<span class="version">Version 1.11</span>
+		</div>
+	</div><!-- /settingsdialog -->
+
+	<div class="diacontainer">
+		<!-- Dia settings -->
+	</div>
+
+	<div class="wrapper">
+		<div class="editmessage displaynone">
+			<p>Edit mode is on. Click on a tile to edit its attributes. You can disable edit mode in the settings, or by hitting a page refresh [F5].</p>
+		</div>
+		<div class="container">
+			<div class="row"><!-- row0 -->
+				<div class="col-lg-5">
+					<div id="clock">
+						<div class="timercontainer">
+							<div class="time noselect"></div>
+							<div class="timeAmpm noselect displaynone"></div>
+							<div class="date noselect"></div>
+						</div>
+						<div class="stopwatch displaynone">
+							<div id="valuecontainer" class="noselect">00:00:00</div>
+							<div class="stopwatchcontrols noselect">
+								<button id="snsStopwatch" class="noselect">Start / Stop</button>
+								<button id="clearStopwatch" class="noselect">Reset</button>
+							</div>
+						</div>
+					</div> <!-- /clock -->
+				</div>
+				<div class="col-lg-6">
+					<div class="searchform">
+						<form method="get" action="http://www.google.com/search" autocomplete="off">
+							<input type="text" id="searchinput" class="noselect" name="q" value="" placeholder="Google search"/>
+						</form>
+					</div>
+				</div>
+				<div class="col-lg-1">
+					<div class="settingsbuttoncontainer">
+						<div class="settingsbutton"></div>
+					</div>
+				</div>
+			</div><!-- /row0 -->
+			<div class="row"><!-- row1 -->
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="one-one">
+					</div>
+					<a href="http://www.facebook.com" class="referer one-one">
+						<div class="linkblock">
+							<div class="link" style="background-image: url(css/img/facebook.png);"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="one-two">
+					</div>
+					<a href="http://www.twitter.com" class="referer one-two">
+						<div class="linkblock">
+							<div class="link" style="background-image: url(css/img/twitter.png);"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="one-three">
+					</div>
+					<a href="http://www.google.com" class="referer one-three">
+						<div class="linkblock">
+							<div class="link" style="background-image: url(css/img/google.png);"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="one-four">
+					</div>
+					<a href="http://outlook.live.com" class="referer one-four">
+						<div class="linkblock">
+							<div class="link" style="background-image: url(css/img/outlook.png);"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="one-five">
+					</div>
+					<a href="http://www.youtube.com" class="referer one-five">
+						<div class="linkblock">
+							<div class="link" style="background-image: url(css/img/youtube.png);"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="one-six">
+					</div>
+					<a href="http://www.reddit.com" class="referer one-six">
+						<div class="linkblock">
+							<div class="link" style="background-image: url(css/img/reddit.png);"></div>
+						</div>
+					</a>
+				</div>
+			</div><!-- /row1 -->
+
+			<div class="row"><!-- row2 -->
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="two-one">
+					</div>
+					<a href="http://drive.google.com" class="referer two-one">
+						<div class="linkblock">
+							<div class="link" style="background-image: url(css/img/googledrive.png);"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="two-two">
+					</div>
+					<a href="http://www.twitch.tv" class="referer two-two">
+						<div class="linkblock">
+							<div class="link" style="background-image: url(css/img/twitch.png);"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="two-three">
+					</div>
+					<a href="http://maps.google.com" class="referer two-three">
+						<div class="linkblock">
+							<div class="link" style="background-image: url(css/img/googlemaps.png);"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="two-four">
+					</div>
+					<a href="#" class="referer two-four">
+						<div class="linkblock">
+							<div class="link"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="two-five">
+					</div>
+					<a href="#" class="referer two-five">
+						<div class="linkblock">
+							<div class="link"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="two-six">
+					</div>
+					<a href="#" class="referer two-six">
+						<div class="linkblock">
+							<div class="link"></div>
+						</div>
+					</a>
+				</div>
+			</div><!-- /row2 -->
+
+			<div class="row"><!-- row3 -->
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="three-one">
+					</div>
+					<a href="#" class="referer three-one">
+						<div class="linkblock">
+							<div class="link"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="three-two">
+					</div>
+					<a href="#" class="referer three-two">
+						<div class="linkblock">
+							<div class="link"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="three-three">
+					</div>
+					<a href="#" class="referer three-three">
+						<div class="linkblock">
+							<div class="link"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="three-four">
+					</div>
+					<a href="#" class="referer three-four">
+						<div class="linkblock">
+							<div class="link"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="three-five">
+					</div>
+					<a href="#" class="referer three-five">
+						<div class="linkblock">
+							<div class="link"></div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2 col-xs-4 height">
+					<div class="editblock displaynone" id="three-six">
+					</div>
+					<a href="#" class="referer three-six">
+						<div class="linkblock">
+							<div class="link"></div>
+						</div>
+					</a>
+				</div>
+			</div><!-- /row3 -->
+		</div><!-- /container -->
+	</div><!-- /wrapper -->
+</body>
+</html>
